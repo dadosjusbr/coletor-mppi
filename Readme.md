@@ -49,8 +49,11 @@ As planilhas referentes á verbas indenizatórias e remunerações temporárias 
             - Mês: referencia o mês da planilha, alterando a forma como é escrito(Digíto ou por extenso);
             - Ano: referencia o ano da planilha, alterando a forma que é escrito (4 ou 2 dígitos).
         
-        Ex: Link para download da planilha de remuneração mensal de julho de 2020 - https://www.mppi.mp.br/internet/wp-content/uploads/2020/09/Remuneracao-de-todos-os-membros-ativos-%E2%80%93-julho-2020.ods
-    
+        Ex: 
+        Link para download da planilha de remuneração mensal de julho de 2020 - https://www.mppi.mp.br/internet/wp-content/uploads/2020/09/Remuneracao-de-todos-os-membros-ativos-%E2%80%93-julho-2020.ods
+
+        Link para download da planilha de remuneração mensal de agosto de 2020: https://www.mppi.mp.br/internet/wp-content/uploads/2020/10/Remuneracao-de-todos-os-membros-ativos-%E2%80%93-agosto-%E2%80%93-2020.ods
+            
 # Como realizar a coleta automatica para meses que foram acrescidos no MPPI
 
     - Primeiramente é necessário identicar o código presente no link referente ao mês que desejo acrescentar (Formação do link explicada no campo anterior). Ao indentificar, preencher na classe src/utils.py o campo destinado ao mesmo. Ex.: A função cod2021(month) retorna um dicionario, no qual a chave é o mẽs e o valor é esse cógido

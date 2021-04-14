@@ -2,10 +2,97 @@ import requests
 import pathlib
 import sys
 import os
-import utils
 
 base_url = "https://www.mppi.mp.br/internet/wp-content/uploads//"
 
+def convert_month(month):
+    months = {
+        "01": "janeiro",
+        "02": "fevereiro",
+        "03": "maro",
+        "04": "abril",
+        "05": "maio",
+        "06": "junho",
+        "07": "julho",
+        "08": "agosto",
+        "09": "setembro",
+        "10": "outubro",
+        "11": "novembro",
+        "12": "dezembro",
+    }
+    return months[month]
+
+
+def cod_2018(month):
+    cod = {
+        "01": "03",
+        "02": "03",
+        "03": "05",
+        "04": "06",
+        "05": "06",
+        "06": "08",
+        "07": "09",
+        "08": "10",
+        "09": "11",
+        "10": "12",
+        "11": "01",
+        "12": "01",
+    }
+    return cod[month]
+
+
+def cod_2019(month):
+    cod = {
+        "01": "03",
+        "02": "04",
+        "03": "05",
+        "04": "05",
+        "05": "07",
+        "06": "08",
+        "07": "09",
+        "08": "10",
+        "09": "11",
+        "10": "12",
+        "11": "12",
+        "12": "01",
+    }
+    return cod[month]
+
+
+def cod_2020(month):
+    cod = {
+        "01": "03",
+        "02": "04",
+        "03": "05",
+        "04": "07",
+        "05": "07",
+        "06": "08",
+        "07": "09",
+        "08": "10",
+        "09": "11",
+        "10": "12",
+        "11": "12",
+        "12": "01",
+    }
+    return cod[month]
+
+
+def cod_2021(month):
+    cod = {
+        "01": "02",
+        "02": "03",
+        "03": "",
+        "04": "",
+        "05": "",
+        "06": "",
+        "07": "",
+        "08": "",
+        "09": "",
+        "10": "",
+        "11": "",
+        "12": "",
+    }
+    return cod[month]
 
 # Generate endpoints able to download
 def links_remuneration(month, year):
@@ -19,10 +106,10 @@ def links_remuneration(month, year):
                 base_url
                 + year
                 + "/"
-                + utils.cod_2018(month)
+                + cod_2018(month)
                 + "/"
                 + "financeiro%20membros%20ativos%20"
-                + utils.convert_month(month)
+                + convert_month(month)
                 + "%20"
                 + year
                 + ".ods"
@@ -32,7 +119,7 @@ def links_remuneration(month, year):
                 base_url
                 + year
                 + "/"
-                + utils.cod_2018(month)
+                + cod_2018(month)
                 + "/"
                 + "membros_ativos_"
                 + month
@@ -45,9 +132,9 @@ def links_remuneration(month, year):
                 base_url
                 + year
                 + "/"
-                + utils.cod_2018(month)
+                + cod_2018(month)
                 + "/membros_ativos-"
-                + utils.convert_month(month)
+                + convert_month(month)
                 + "%20de%20"
                 + year
                 + "-retificado"
@@ -58,9 +145,9 @@ def links_remuneration(month, year):
                 base_url
                 + year
                 + "/"
-                + utils.cod_2018(month)
+                + cod_2018(month)
                 + "/membros_ativos%20-%20"
-                + utils.convert_month(month)
+                + convert_month(month)
                 + "%20-%20"
                 + year
                 + ".ods"
@@ -70,9 +157,9 @@ def links_remuneration(month, year):
                 base_url
                 + year
                 + "/"
-                + utils.cod_2018(month)
+                + cod_2018(month)
                 + "/membros_ativos-"
-                + utils.convert_month(month)
+                + convert_month(month)
                 + "%20de%20"
                 + year
                 + ".ods"
@@ -81,9 +168,9 @@ def links_remuneration(month, year):
             link = (
                 base_url
                 + "2019/"
-                + utils.cod_2018(month)
+                + cod_2018(month)
                 + "/membros_ativos_"
-                + utils.convert_month(month)
+                + convert_month(month)
                 + "%20"
                 + year
                 + ".ods"
@@ -93,7 +180,7 @@ def links_remuneration(month, year):
             link = (
                 base_url
                 + "2019/"
-                + utils.cod_2018(month)
+                + cod_2018(month)
                 + "/membros_ativos_dez_"
                 + year
                 + ".ods"
@@ -104,9 +191,9 @@ def links_remuneration(month, year):
                 base_url
                 + year
                 + "/"
-                + utils.cod_2019(month)
+                + cod_2019(month)
                 + "/membros_ativos_"
-                + utils.convert_month(month)[0:3]
+                + convert_month(month)[0:3]
                 + "_"
                 + year[2:]
                 + ".ods"
@@ -116,7 +203,7 @@ def links_remuneration(month, year):
                 base_url
                 + year
                 + "/"
-                + utils.cod_2019(month)
+                + cod_2019(month)
                 + "/membros%20ativos_"
                 + month
                 + "_"
@@ -128,7 +215,7 @@ def links_remuneration(month, year):
                 base_url
                 + year
                 + "/"
-                + utils.cod_2019(month)
+                + cod_2019(month)
                 + "/membros_ativos_"
                 + month
                 + "_"
@@ -140,7 +227,7 @@ def links_remuneration(month, year):
                 base_url
                 + year
                 + "/"
-                + utils.cod_2019(month)
+                + cod_2019(month)
                 + "/geral_membros_ativos_"
                 + month
                 + "_"
@@ -152,7 +239,7 @@ def links_remuneration(month, year):
                 base_url
                 + year
                 + "/"
-                + utils.cod_2019(month)
+                + cod_2019(month)
                 + "/membros_ativos_"
                 + month
                 + "_"
@@ -163,7 +250,7 @@ def links_remuneration(month, year):
             link = (
                 base_url
                 + "2020/"
-                + utils.cod_2019(month)
+                + cod_2019(month)
                 + "/membros_ativos_"
                 + month
                 + "_"
@@ -176,7 +263,7 @@ def links_remuneration(month, year):
                 base_url
                 + year
                 + "/"
-                + utils.cod_2020(month)
+                + cod_2020(month)
                 + "/membros_ativos_"
                 + month
                 + "_"
@@ -188,9 +275,9 @@ def links_remuneration(month, year):
                 base_url
                 + year
                 + "/"
-                + utils.cod_2020(month)
+                + cod_2020(month)
                 + "/Remuneracao-de-todos-os-membros-ativos-%E2%80%93-"
-                + utils.convert_month(month)
+                + convert_month(month)
                 + "-"
                 + year
                 + ".ods"
@@ -200,9 +287,9 @@ def links_remuneration(month, year):
                 base_url
                 + year
                 + "/"
-                + utils.cod_2020(month)
+                + cod_2020(month)
                 + "/Remuneracao-de-todos-os-membros-ativos-%E2%80%93-"
-                + utils.convert_month(month)
+                + convert_month(month)
                 + "-%E2%80%93-"
                 + year
                 + ".ods"
@@ -211,9 +298,9 @@ def links_remuneration(month, year):
             link = (
                 base_url
                 + "2021/"
-                + utils.cod_2020(month)
+                + cod_2020(month)
                 + "/Remuneracao-de-todos-os-membros-ativos-%E2%80%93-"
-                + utils.convert_month(month)
+                + convert_month(month)
                 + "-%E2%80%93-"
                 + year
                 + ".ods"
@@ -224,9 +311,9 @@ def links_remuneration(month, year):
                 base_url
                 + year
                 + "/"
-                + utils.cod_2021(month)
+                + cod_2021(month)
                 + "/Remuneracao-de-todos-os-membros-ativos-%E2%80%93-"
-                + utils.convert_month(month)
+                + convert_month(month)
                 + "-%E2%80%93-"
                 + year
                 + ".ods"
@@ -245,7 +332,7 @@ def links_other_funds(month, year):
                 base_url
                 + year
                 + "/"
-                + utils.cod_2019(month)
+                + cod_2019(month)
                 + "/indenizatorias_membros_"
                 + month
                 + "_"
@@ -258,7 +345,7 @@ def links_other_funds(month, year):
                 base_url
                 + year
                 + "/"
-                + utils.cod_2019(month)
+                + cod_2019(month)
                 + "/indenizatorias_membros_"
                 + month
                 + "_"
@@ -271,7 +358,7 @@ def links_other_funds(month, year):
                 base_url
                 + year
                 + "/"
-                + utils.cod_2019(month)
+                + cod_2019(month)
                 + "/verbas_indenizatorias_membros_"
                 + month
                 + "_"
@@ -283,7 +370,7 @@ def links_other_funds(month, year):
             link = (
                 base_url
                 + "2020/"
-                + utils.cod_2019(month)
+                + cod_2019(month)
                 + "/verbas_indenizatorias_membros_"
                 + month
                 + "_"
@@ -298,7 +385,7 @@ def links_other_funds(month, year):
                 base_url
                 + year
                 + "/"
-                + utils.cod_2020(month)
+                + cod_2020(month)
                 + "/verbas_indenizatorias_membros_"
                 + month
                 + "_"
@@ -311,7 +398,7 @@ def links_other_funds(month, year):
                 base_url
                 + year
                 + "/"
-                + utils.cod_2020(month)
+                + cod_2020(month)
                 + "/Verbas-Indenizat%C3%B3rias-e-Outras-Remunera%C3%A7%C3%B5es-Tempor%C3%A1rias-%E2%80%93-Membros-%E2%80%93-Junho-de-2020"
                 + ".ods"
             )
@@ -322,9 +409,9 @@ def links_other_funds(month, year):
                 base_url
                 + year
                 + "/"
-                + utils.cod_2020(month)
+                + cod_2020(month)
                 + "/Verbas-Indenizatorias-e-Outras-Remuneracoes-Temporarias-%E2%80%93-Membros-%E2%80%93-"
-                + utils.convert_month(month)
+                + convert_month(month)
                 + "-de-"
                 + year
                 + ".ods"
@@ -334,9 +421,9 @@ def links_other_funds(month, year):
             link = (
                 base_url
                 + "2021/"
-                + utils.cod_2020(month)
+                + cod_2020(month)
                 + "/Verbas-Indenizatorias-e-Outras-Remuneracoes-Temporarias-%E2%80%93-Membros-%E2%80%93-"
-                + utils.convert_month(month)
+                + convert_month(month)
                 + "-de-"
                 + year
                 + ".ods"
@@ -348,9 +435,9 @@ def links_other_funds(month, year):
                 base_url
                 + year
                 + "/"
-                + utils.cod_2021(month)
+                + cod_2021(month)
                 + "/Verbas-Indenizatorias-e-Outras-Remuneracoes-Temporarias-%E2%80%93-Membros-%E2%80%93-"
-                + utils.convert_month(month)
+                + convert_month(month)
                 + "-de-"
                 + year
                 + ".ods"
