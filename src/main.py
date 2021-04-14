@@ -41,9 +41,10 @@ if int(year) > current_year:
     sys.stderr.write("Invalid year {}: InvalidParameters.\n".format(year))
     os._exit(1)
 
-# Main execution
-def main():
-    file_names = crawler.crawl(year, month, output_path)
+# Main execution   
+
+if __name__ == "__main__":
+     file_names = crawler.crawl(year, month, output_path)
     # employees = parser.parse(file_names)
     # cr = {
     #     'aid': 'mppi',
@@ -60,6 +61,3 @@ def main():
     # }
     # print(json.dumps({'cr': cr}, ensure_ascii=False))
 
-
-if __name__ == "__main__":
-    main()
