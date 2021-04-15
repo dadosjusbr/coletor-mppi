@@ -12,7 +12,6 @@ def parse_employees_jun18_backward(file_name):
             curr_row += 1
             continue
 
-        matricula = ""
         nome = row[0]
         cargo_efetivo = row[1]
         lotacao = row[2]
@@ -54,7 +53,6 @@ def parse_employees_jun18_backward(file_name):
         )
 
         employees[nome] = {
-            "reg": matricula,
             "name": nome,
             "role": cargo_efetivo,
             "type": "membro",
