@@ -5,6 +5,7 @@ import pathlib
 import sys
 import os
 import parser_jun_18_backward
+import parser_jul_aug_sept_dec_18
 
 # Read data downloaded from the crawler
 def read_data(path):
@@ -85,6 +86,8 @@ def parse(file_names, year, month):
                     employees.update(
                         parser_jun_18_backward.parse_employees_jun18_backward(fn)
                     )
+                elif month in ["07", "08", "09", "12"]:
+                      employees.update(parser_jul_aug_sept_dec_18.parse_employees(fn))
 
     # try:
     #     for fn in file_names:
