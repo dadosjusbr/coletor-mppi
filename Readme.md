@@ -53,6 +53,12 @@ As planilhas referentes á verbas indenizatórias e remunerações temporárias 
         Link para download da planilha de remuneração mensal de julho de 2020 - https://www.mppi.mp.br/internet/wp-content/uploads/2020/09/Remuneracao-de-todos-os-membros-ativos-%E2%80%93-julho-2020.ods
 
         Link para download da planilha de remuneração mensal de agosto de 2020: https://www.mppi.mp.br/internet/wp-content/uploads/2020/10/Remuneracao-de-todos-os-membros-ativos-%E2%80%93-agosto-%E2%80%93-2020.ods
+    
+    - Variação na formatação das planilhas:
+        - Algumas planilhas disponibilizam os dados a partir da primeira coluna, em outras os dados commeçam na segunda coluna;
+        - No ano de 2018 temos dois tipos de planilhas para as remunerações mensais (São distintas em relação a ordem dos variáveis e o campo matrícula se encontra apenas nas planilhas posteriores a junho de 2018);
+        - Em 2019 temos dois tipos de planilha para remunerações mensais (a variação é apenas na ordem das variáveis). A planilha de verbas indenizatórias se mantem constante para todos os meses que foram disponibilizada;
+        - Em 2020 a planilha de remunerações mensais não teve variação em relação as planilhas do segundo semestre de 2019. Apresentando uma nova ordem nas variáveis das planilhas de verbas indenizatórias, a qual se manteu constante durate todo o ano. 
             
 # Como realizar a coleta automatica para meses que foram acrescidos no MPPI
 
