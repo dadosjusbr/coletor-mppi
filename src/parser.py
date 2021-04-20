@@ -6,9 +6,10 @@ import sys
 import os
 import parser_jun_18_backward
 import parser_jul_aug_sept_dec_18
-import parser_jul_to_dez_19_indemnity
 import parser_jan_to_jun19
 import parser_jul19_forward
+import parser_jul_to_dez_19_indemnity
+import parser_jan20_forward_indemnity
 
 # Read data downloaded from the crawler
 def read_data(path):
@@ -100,7 +101,8 @@ def parse(file_names, year, month):
                     employees.update(parser_jan_to_jun19.parse_employees(fn))
                 else:
                     employees.update(parser_jul19_forward.parse_employees(fn))
-
+            else:
+                employees.update(parser_jul19_forward.parse_employees(fn))
     try:
         for fn in file_names:
             if "Verbas Indenizatorias" in fn:
@@ -108,7 +110,10 @@ def parse(file_names, year, month):
                     parser_jul_to_dez_19_indemnity.update_employee_indemnity(
                         fn, employees
                     )
-
+                else:
+                    parser_jan20_forward_indemnity.update_employee_indemnity(
+                        fn, employees
+                    )      
     except KeyError as e:
         sys.stderr.write(
             "Registro inválido ao processar verbas indenizatórias: {}".format(e)
