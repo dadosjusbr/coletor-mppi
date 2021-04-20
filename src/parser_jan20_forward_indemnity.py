@@ -11,13 +11,13 @@ def update_employee_indemnity(file_name, employees):
             curr_row += 1
             continue
 
-        matricula = str(row[0])
+        matricula = str(row[1])
         if matricula in employees.keys():
-            alimentacao = parser.format_value(row[4])
-            saude = parser.format_value(row[5])
-            abono_pecuniario = parser.format_value(row[6])
-            indenizacao_por_cumulacao = parser.format_value(row[7])
-            complemento_por_entrancia = parser.format_value(row[8])
+            alimentacao = parser.format_value(row[6])
+            saude = parser.format_value(row[7])
+            abono_pecuniario = parser.format_value(row[8])
+            indenizacao_por_cumulacao = parser.format_value(row[9])
+            complemento_por_entrancia = parser.format_value(row[10])
             total_indenizacoes = alimentacao + saude + abono_pecuniario
             total_gratificacoes = indenizacao_por_cumulacao + complemento_por_entrancia
             emp = employees[matricula]
@@ -42,7 +42,6 @@ def update_employee_indemnity(file_name, employees):
                     }
                 }
             )
-
             emp["income"]["other"]["others"].update(
                 {
                     "INDENIZAÇÃO POR CUMULAÇÃO": indenizacao_por_cumulacao,

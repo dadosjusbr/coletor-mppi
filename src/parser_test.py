@@ -174,6 +174,55 @@ class TestParser(unittest.TestCase):
         self.assertEqual(1, len(employees))
         self.assertDictEqual(employees[0], expected)
 
+    def test_membros_ativos_jan20(self):
+        self.maxDiff = None
+
+        expected = {
+            "reg": "10014",
+            "name": "ADRIANO FONTENELE SANTOS",
+            "role": "2º PROMOTOR(A) DE JUSTICA DE ESPERANTINA",
+            "type": "membro",
+            "workplace": "2ª PROMOTORIA DE JUSTICA DE ESPERANTINA, 2ª PROMOTORIA DE JUSTICA DE ESPERANTINA",
+            "active": True,
+            "income": {
+                "total": 37013.34,
+                "wage": 32004.65,
+                "other": {
+                    "total": 2952.69,
+                    "trust_position": 0.0,
+                    "others_total": 2952.69,
+                    "others": {
+                        "Gratificação Natalina": 0.0,
+                        "Férias (1/3 constitucional)": 0.0,
+                        "Abono de Permanência": 0.0,
+                        "INDENIZAÇÃO POR CUMULAÇÃO": 2952.69,
+                        "COMPLEMENTO POR ENTRÂNCIA": 0.0,
+                    },
+                },
+                "perks": {
+                    "total": 2056.0,
+                    "food": 1656.0,
+                    "health": 400.0,
+                    "vacation_pecuniary": 0.0,
+                },
+            },
+            "discounts": {
+                "total": 11128.25,
+                "prev_contribution": 4480.65,
+                "ceil_retention": 0.0,
+                "income_tax": 6647.6,
+            },
+        }
+        files = (
+            "./output_test/Membros ativos-01-2020.ods",
+            "./output_test/Membros ativos-Verbas Indenizatorias-01-2020.ods",
+        )
+        employees = parser.parse(files, "2020", "01")
+
+        # Verificações
+        self.assertEqual(1, len(employees))
+        self.assertDictEqual(employees[0], expected)
+
 
 if __name__ == "__main__":
     unittest.main()
