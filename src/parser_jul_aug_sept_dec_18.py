@@ -12,16 +12,14 @@ def parse_employees(file_name):
             curr_row += 1
             continue
 
-        matricula = row[1]
+        matricula = str(row[1])
         # As planilhas possuem algumas caracteristicas que dificultaram o parser, como por exemplo:
         # linhas vazias entre as as informações dos membros;
         # presença de cabeçalho em cada página;
         # presença de rodapé em cada página.
         # Para contorna essas dificuldade no parseameno dos dados, foram criadas algumas condiçõe para que o parser ocorra apenas nas linhas que contem informações dos membro.
-        if not parser.isNaN(matricula):
-            if "Membros" not in str(matricula):
-                if type(matricula) != str:
-                    matricula = str(matricula)
+        if not parser.isNaN(matricula) and matricula != "nan":
+            if "Membros" not in matricula and "Matrícula" not in matricula:
                 nome = row[3]
                 cargo_efetivo = row[5]
                 lotacao = row[7]
