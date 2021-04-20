@@ -6,6 +6,9 @@ import sys
 import os
 import parser_jun_18_backward
 import parser_jul_aug_sept_dec_18
+import parser_jul_to_dez_19_indemnity
+import parser_jan_to_jun19
+import parser_jul19_forward
 
 # Read data downloaded from the crawler
 def read_data(path):
@@ -35,18 +38,22 @@ def get_begin_row(rows):
     begin_row = 0
     for row in rows:
         begin_row += 1
-        if row[0] == begin_string_case_1 or row[1] == begin_string_case_2:
+        if row[0] in [begin_string_case_1, begin_string_case_2] or row[1] in [
+            begin_string_case_1,
+            begin_string_case_2,
+        ]:
             break
 
     # We need to continue interate until wee a value that is not
     # whitespace. That happen due to the spreadsheet formatting.
+
     while isNaN(rows[begin_row][1]):
         begin_row += 1
     return begin_row
 
 
 def get_end_row(rows, begin_row):
-    end_string = "TOTAL GERAL"
+    end_string = "TOTAL"
     end_row = 0
     for row in rows:
         # First goes to begin_row.
@@ -87,17 +94,24 @@ def parse(file_names, year, month):
                         parser_jun_18_backward.parse_employees_jun18_backward(fn)
                     )
                 elif month in ["07", "08", "09", "12"]:
-                      employees.update(parser_jul_aug_sept_dec_18.parse_employees(fn))
+                    employees.update(parser_jul_aug_sept_dec_18.parse_employees(fn))
+            elif year == "2019":
+                if month in ["01", "02", "03", "04", "05", "06"]:
+                    employees.update(parser_jan_to_jun19.parse_employees(fn))
+                else:
+                    employees.update(parser_jul19_forward.parse_employees(fn))
 
-    # try:
-    #     for fn in file_names:
-    #         if "Verbas Indenizatorias" in fn:
-    #             update_employee_indemnity(fn, employees)
-    #         elif "Verbas Temporarias" in fn:
-    #             update_employee_temporary_remuneration(fn, employees)
-    # except KeyError as e:
-    #     sys.stderr.write(
-    #         "Registro inválido ao processar verbas indenizatórias: {}".format(e)
-    #     )
-    #     os._exit(1)
+    try:
+        for fn in file_names:
+            if "Verbas Indenizatorias" in fn:
+                if year == "2019" and month in ["07", "08", "09", "10", "11", "12"]:
+                    parser_jul_to_dez_19_indemnity.update_employee_indemnity(
+                        fn, employees
+                    )
+
+    except KeyError as e:
+        sys.stderr.write(
+            "Registro inválido ao processar verbas indenizatórias: {}".format(e)
+        )
+        os._exit(1)
     return list(employees.values())
