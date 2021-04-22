@@ -1,3 +1,5 @@
+![testes](https://github.com/dadosjusbr/coletor-MPPI/actions/workflows/python-package.yml/badge.svg)
+
 # Ministério Público do Piauí - Crawler
 
 Este crawler tem como objetivo a recuperação de informações sobre folhas de pagamentos dos membros ativos do Ministério Público do Piauí, a partir de 2018. O site com as informações pode ser acessado [aqui](https://www.mppi.mp.br/internet/portal-da-transparencia/contracheque/).
