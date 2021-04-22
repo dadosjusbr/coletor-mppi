@@ -5,7 +5,9 @@ name: parser testes
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
 
-on: [push]
+on: 
+  push:
+    branches: [ master ]
 
 jobs:
   build:
@@ -13,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.7, 3.8, 3.9]
+        python-version: [3.7, 3.8]
         
     steps:
     - uses: actions/checkout@v2
@@ -47,4 +49,4 @@ jobs:
     - name: Test 
       working-directory: ./src
       run: |
-        python3 parser_test.py
+         parser_test.py
