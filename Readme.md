@@ -1,4 +1,4 @@
-![testes](https://github.com/dadosjusbr/coletor-MPPI/actions/workflows/python-package.yml/badge.svg)
+![testes](https://github.com/dadosjusbr/coletor-MPPI/actions/workflows/parser-testes.yml/badge.svg)
 
 # Ministério Público do Piauí - Crawler
 
