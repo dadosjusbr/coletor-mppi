@@ -6,7 +6,7 @@ import sys
 import os
 import parser_jun_18_backward
 import parser_jul_aug_sept_dec_18
-import parser_jan_to_jun19
+import parser_oct_nov_18_jan_to_jun19
 import parser_jul19_forward
 import parser_jul_to_dez_19_indemnity
 import parser_jan20_forward_indemnity
@@ -30,7 +30,6 @@ def read_data(path):
 # Source: https://stackoverflow.com/a/944712/5822594
 def isNaN(string):
     return string != string
-
 
 def get_begin_row(rows):
     # Em algumas planilhas o campo row[0] é Nome e em outras é Matricula
@@ -96,9 +95,12 @@ def parse(file_names, year, month):
                     )
                 elif month in ["07", "08", "09", "12"]:
                     employees.update(parser_jul_aug_sept_dec_18.parse_employees(fn))
+                elif month in ["10", "11"]:
+                    employees.update(parser_oct_nov_18_jan_to_jun19.parse_employees(fn))
+
             elif year == "2019":
                 if month in ["01", "02", "03", "04", "05", "06"]:
-                    employees.update(parser_jan_to_jun19.parse_employees(fn))
+                    employees.update(parser_oct_nov_18_jan_to_jun19.parse_employees(fn))
                 else:
                     employees.update(parser_jul19_forward.parse_employees(fn))
             else:

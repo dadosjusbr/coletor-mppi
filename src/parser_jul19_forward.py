@@ -18,7 +18,7 @@ def parse_employees(file_name):
         # presença de cabeçalho em cada página;
         # presença de rodapé em cada página.
         # Para contorna essas dificuldade no parseameno dos dados, foram criadas algumas condiçõe para que o parser ocorra apenas nas linhas que contem informações dos membro.
-        if not parser.isNaN(matricula):
+        if not parser.isNaN(matricula) and matricula != "nan":
             if "Membros" not in str(matricula) and "Matrícula" not in matricula:
                 nome = row[3]
                 cargo_efetivo = row[5]
