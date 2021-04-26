@@ -1,0 +1,19 @@
+
+ports:
+- port: 8080
+  onOpen: open-preview
+  
+tasks:
+- init: >
+    python3 -m pip install -r requirements.txt &&
+    
+  command: >
+    cd src &&
+    MONTH=1 YEAR=2020 GIT_COMMIT=$(git rev-list -1 HEAD) python3 main.py
+    
+github:
+    prebuilds:
+        # enable for the master/default branch (defaults to true)
+        master: true
+        # enable for pull requests coming from this repo (defaults to true)
+        pullRequests: true
