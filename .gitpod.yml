@@ -7,9 +7,6 @@ tasks:
 - init: >
     python3 -m pip install -r requirements.txt
     
-  command: >
-    cd src
-    
 github:
     prebuilds:
         # enable for the master/default branch (defaults to true)
