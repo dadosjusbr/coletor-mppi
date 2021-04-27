@@ -8,8 +8,7 @@ tasks:
     python3 -m pip install -r requirements.txt
     
   command: >
-    cd src &&
-    MONTH=1 YEAR=2020 GIT_COMMIT=$(git rev-list -1 HEAD) python3 main.py
+    cd src
     
 github:
     prebuilds:
