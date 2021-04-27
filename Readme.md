@@ -1,5 +1,6 @@
 
-![testes](https://github.com/dadosjusbr/coletor-MPPI/actions/workflows/parser-testes.yml/badge.svg)
+![testes](https://github.com/dadosjusbr/coletor-MPPI/actions/workflows/parser-testes.yml/badge.svg)    
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/dadosjusbr/coletor-MPPI)
 
 # Ministério Público do Piauí - Crawler
 
@@ -108,11 +109,6 @@ sudo apt install python3 python3-pip
   ```sh
     $ sudo docker run -e MONTH=2 -e YEAR=2020 -e GIT_COMMIT=$(git rev-list -1 HEAD) mppi
   ```
-  
-### Código no GitPod
 
-[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/dadosjusbr/coletor-MPPI)
-
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/dadosjusbr/coletor-MPPI)
 
 
