@@ -469,23 +469,14 @@ def crawl(year, month, output_path):
     files = []
     for element in urls_remuneration:
         pathlib.Path(output_path).mkdir(exist_ok=True)
-        file_name = element + "-" + month.zfill(2) + "-" + year + ".ods"
+        file_name = f"membros-ativos-contracheque-{month.zfill(2)}-{year}.ods"
         file_path = output_path + "/" + file_name
         download(urls_remuneration[element], file_path)
         files.append(file_path)
 
     for element in urls_other_funds:
         pathlib.Path(output_path).mkdir(exist_ok=True)
-        file_name_indemnity = (
-            element
-            + "-"
-            + "Verbas Indenizatorias"
-            + "-"
-            + month.zfill(2)
-            + "-"
-            + year
-            + ".ods"
-        )
+        file_name_indemnity = f"membros-ativos-verbas-indenizatorias-{month.zfill(2)}-{year}.ods"
         file_path_indemnity = output_path + "/" + file_name_indemnity
         download(urls_other_funds[element], file_path_indemnity)
         files.append(file_path_indemnity)
