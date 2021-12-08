@@ -1,0 +1,75 @@
+{
+    "contraCheque": [
+        {
+            "idContraCheque": "mppi/01/2018/1",
+            "chaveColeta": "mppi/01/2018",
+            "nome": "ADRIANO FONTENELE SANTOS",
+            "funcao": "PROMOTOR(A) DE JUSTICA",
+            "ativo": true,
+            "remuneracoes": {
+                "remuneracao": [
+                    {
+                        "categoria": "contracheque_jun_18_backward",
+                        "item": "Remuneração do Cargo Efetivo/Proventos/Bolsa Estágio",
+                        "valor": 27500.17
+                    },
+                    {
+                        "categoria": "contracheque_jun_18_backward",
+                        "item": "Outras Verbas Remuneratórias, Legais ou Judiciais",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "contracheque_jun_18_backward",
+                        "item": "Função de Confiança ou Cargo em Comissão",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "contracheque_jun_18_backward",
+                        "item": "Gratificação Natalina",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "contracheque_jun_18_backward",
+                        "item": "Férias (1/3 constitucional)",
+                        "valor": 9166.72,
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "contracheque_jun_18_backward",
+                        "item": "Abono de Permanência",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "natureza": "D",
+                        "categoria": "contracheque_jun_18_backward",
+                        "item": "Contribuição Previdenciária",
+                        "valor": -3850.02
+                    },
+                    {
+                        "natureza": "D",
+                        "categoria": "contracheque_jun_18_backward",
+                        "item": "Imposto de Renda",
+                        "valor": -8371.49
+                    },
+                    {
+                        "natureza": "D",
+                        "categoria": "contracheque_jun_18_backward",
+                        "item": "Retenção por Teto Constitucional"
+                    },
+                    {
+                        "categoria": "contracheque_jun_18_backward",
+                        "item": "Indenzações",
+                        "valor": 5817.73,
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "contracheque_jun_18_backward",
+                        "item": "Outras Remunerações Retroativas/Temporárias",
+                        "valor": 975.81,
+                        "tipoReceita": "O"
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,91 @@
+{
+    "contraCheque": [
+        {
+            "idContraCheque": "mppi/1/2020/1",
+            "chaveColeta": "mppi/1/2020",
+            "nome": "ADRIANO FONTENELE SANTOS",
+            "matricula": "10014",
+            "funcao": "2º PROMOTOR(A) DE JUSTICA DE ESPERANTINA",
+            "ativo": true,
+            "remuneracoes": {
+                "remuneracao": [
+                    {
+                        "categoria": "contracheque_jul19_forward",
+                        "item": "Remuneração do Cargo Efetivo/Proventos/Bolsa Estágio",
+                        "valor": 32004.65
+                    },
+                    {
+                        "categoria": "contracheque_jul19_forward",
+                        "item": "Outras Verbas Remuneratórias, Legais ou Judiciais",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "contracheque_jul19_forward",
+                        "item": "Função de Confiança ou Cargo em Comissão",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "contracheque_jul19_forward",
+                        "item": "Gratificação Natalina",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "contracheque_jul19_forward",
+                        "item": "Férias (1/3 constitucional)",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "contracheque_jul19_forward",
+                        "item": "Abono de Permanência",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "natureza": "D",
+                        "categoria": "contracheque_jul19_forward",
+                        "item": "Contribuição Previdenciária",
+                        "valor": -4480.65
+                    },
+                    {
+                        "natureza": "D",
+                        "categoria": "contracheque_jul19_forward",
+                        "item": "Imposto de Renda",
+                        "valor": -6647.6
+                    },
+                    {
+                        "natureza": "D",
+                        "categoria": "contracheque_jul19_forward",
+                        "item": "Retenção por Teto Constitucional"
+                    },
+                    {
+                        "categoria": "indenizacoes_jan20_forward",
+                        "item": "AUXÍLIO ALIMENTAÇÃO",
+                        "valor": 1656.0,
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "indenizacoes_jan20_forward",
+                        "item": "AUXÍLIO SAÚDE",
+                        "valor": 400.0,
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "indenizacoes_jan20_forward",
+                        "item": "ABONO PECUNIÁRIO",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "indenizacoes_jan20_forward",
+                        "item": "INDENIZAÇÃO POR CUMULAÇÃO",
+                        "valor": 2952.69,
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "indenizacoes_jan20_forward",
+                        "item": "COMPLEMENTO POR ENTRÂNCIA",
+                        "tipoReceita": "O"
+                    }
+                ]
+            }
+        }
+    ]
+}
