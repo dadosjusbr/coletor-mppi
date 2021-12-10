@@ -90,7 +90,7 @@ def cria_remuneracao(row, categoria):
 
 def update_employees(fn, employees, categoria):
     for row in fn:
-        matricula = row[1]
+        matricula = row[0] if categoria == INDENIZACOES_JUL_TO_DEZ_19 else row[1]
         if matricula in employees.keys():
             emp = employees[matricula]
             remu = cria_remuneracao(row, categoria)
@@ -125,7 +125,7 @@ def parse(data, chave_coleta, month, year):
         if year != "2018":
             if year == "2019" and month in ["07", "08", "09", "10", "11", "12"]:
                 update_employees(data.indenizatorias, employees, INDENIZACOES_JUL_TO_DEZ_19)
-            elif (year != "2019" and month in ["01", "02", "03", "04", "05", "06"]):
+            elif (year != "2019"):
                 update_employees(data.indenizatorias, employees, INDENIZACOES_JAN20_FORWARD)
     except KeyError as e:
         sys.stderr.write(
