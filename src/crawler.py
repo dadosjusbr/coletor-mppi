@@ -81,19 +81,20 @@ def cod_2021(month):
     cod = {
         "01": "02",
         "02": "03",
-        "03": "",
-        "04": "",
-        "05": "",
-        "06": "",
-        "07": "",
-        "08": "",
-        "09": "",
+        "03": "04",
+        "04": "05",
+        "05": "06",
+        "06": "07",
+        "07": "08",
+        "08": "10",
+        "09": "10",
         "10": "",
         "11": "",
         "12": "",
     }
-    return cod[month]
 
+    return cod[month]
+        
 # Generate endpoints able to download
 def links_remuneration(month, year):
     month = month.zfill(2)  # Deixa o mês com dois digitos
@@ -306,7 +307,7 @@ def links_remuneration(month, year):
                 + ".ods"
             )
     elif year == "2021":
-        if month in ["01", "02"]:
+        if month in ["01", "02", "03", "04", "05", "06", "07", "08", "09"]:
             link = (
                 base_url
                 + year
@@ -430,7 +431,7 @@ def links_other_funds(month, year):
             )
             links_type["Membros ativos"] = link
     elif year == "2021":
-        if month in ["01", "02"]:
+        if month in ["01", "02", "03", "04", "05", "06", "07", "08"]:
             link = (
                 base_url
                 + year
@@ -443,6 +444,17 @@ def links_other_funds(month, year):
                 + ".ods"
             )
             links_type["Membros ativos"] = link
+
+        elif month in ["09"]:
+            link = (
+                base_url 
+                + year
+                + "/"
+                + code_2021[month]
+                + "/VERBAS1.ods"
+            )
+            links_type["Membros ativos"] = link
+
     return links_type
 
 
@@ -454,12 +466,9 @@ def download(url, file_path):
         file.close()
     except Exception as excep:
         sys.stderr.write(
-            "Não foi possível fazer o download do arquivo: "
-            + file_path
-            + ". O seguinte erro foi gerado: "
-            + excep
+            f"Não foi possível fazer o download do arquivo: {file_path}. O seguinte erro foi gerado: {excep}"
         )
-        os._exit(1)
+        sys.exit(1)
 
 
 # Crawl retrieves payment files from MPDFT.
@@ -471,6 +480,9 @@ def crawl(year, month, output_path):
         pathlib.Path(output_path).mkdir(exist_ok=True)
         file_name = f"membros-ativos-contracheque-{month.zfill(2)}-{year}.ods"
         file_path = output_path + "/" + file_name
+        if urls_remuneration[element] == "":
+            sys.stderr.write(f"Não existe planilha para {month}/{year}")
+            sys.exit(4)
         download(urls_remuneration[element], file_path)
         files.append(file_path)
 
