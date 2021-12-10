@@ -503,7 +503,6 @@ def crawl(year, month, output_path):
         if urls_remuneration[element] == "":
             sys.stderr.write(f"Não existe planilha para {month}/{year}")
             sys.exit(4)
-        print(urls_remuneration[element])
         download(urls_remuneration[element], file_path)
         files.append(file_path)
 
@@ -511,7 +510,6 @@ def crawl(year, month, output_path):
         pathlib.Path(output_path).mkdir(exist_ok=True)
         file_name_indemnity = f"membros-ativos-verbas-indenizatorias-{month.zfill(2)}-{year}.ods"
         file_path_indemnity = output_path + "/" + file_name_indemnity
-        print(urls_other_funds[element])
         download(urls_other_funds[element], file_path_indemnity)
         files.append(file_path_indemnity)
 
