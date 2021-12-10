@@ -56,6 +56,33 @@
                         "natureza": "D",
                         "categoria": "contracheque_jul19_forward",
                         "item": "Retenção por Teto Constitucional"
+                    },
+                    {
+                        "categoria": "indenizacoes_jul_to_dez_19",
+                        "item": "AUXÍLIO ALIMENTAÇÃO",
+                        "valor": 1656.0,
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "indenizacoes_jul_to_dez_19",
+                        "item": "AUXÍLIO SAÚDE",
+                        "valor": 400.0,
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "indenizacoes_jul_to_dez_19",
+                        "item": "ABONO PECUNIÁRIO",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "indenizacoes_jul_to_dez_19",
+                        "item": "INDENIZAÇÃO POR CUMULAÇÃO",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "indenizacoes_jul_to_dez_19",
+                        "item": "COMPLEMENTO POR ENTRÂNCIA",
+                        "tipoReceita": "O"
                     }
                 ]
             }
