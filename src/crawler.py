@@ -325,7 +325,7 @@ def links_remuneration(month, year):
                 + ".ods"
             )
     elif year == "2021":
-        if month in ["01", "02", "03", "04", "05", "06", "07", "08", "09"]:
+        if month in ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10"]:
             mon = "marco" if convert_month(month) == "maro" else convert_month(month)
             link = (
                 base_url
@@ -450,7 +450,7 @@ def links_other_funds(month, year):
             )
             links_type["Membros ativos"] = link
     elif year == "2021":
-        if month in ["01", "02", "03", "04", "05", "06", "07", "08"]:
+        if month in ["01", "02", "03", "04", "05", "06", "07", "08", "10"]:
             mon = "marco" if convert_month(month) == "maro" else convert_month(month)
             link = (
                 base_url
