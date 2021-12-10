@@ -94,6 +94,24 @@ def cod_2021(month):
     }
 
     return cod[month]
+
+def cod_2021_indemmit(month):
+    cod = {
+        "01": "02",
+        "02": "03",
+        "03": "05",
+        "04": "05",
+        "05": "06",
+        "06": "07",
+        "07": "08",
+        "08": "10",
+        "09": "10",
+        "10": "",
+        "11": "",
+        "12": "",
+    }
+
+    return cod[month]
         
 # Generate endpoints able to download
 def links_remuneration(month, year):
@@ -308,13 +326,14 @@ def links_remuneration(month, year):
             )
     elif year == "2021":
         if month in ["01", "02", "03", "04", "05", "06", "07", "08", "09"]:
+            mon = "marco" if convert_month(month) == "maro" else convert_month(month)
             link = (
                 base_url
                 + year
                 + "/"
                 + cod_2021(month)
                 + "/Remuneracao-de-todos-os-membros-ativos-%E2%80%93-"
-                + convert_month(month)
+                + mon
                 + "-%E2%80%93-"
                 + year
                 + ".ods"
@@ -432,13 +451,14 @@ def links_other_funds(month, year):
             links_type["Membros ativos"] = link
     elif year == "2021":
         if month in ["01", "02", "03", "04", "05", "06", "07", "08"]:
+            mon = "marco" if convert_month(month) == "maro" else convert_month(month)
             link = (
                 base_url
                 + year
                 + "/"
-                + cod_2021(month)
+                + cod_2021_indemmit(month)
                 + "/Verbas-Indenizatorias-e-Outras-Remuneracoes-Temporarias-%E2%80%93-Membros-%E2%80%93-"
-                + convert_month(month)
+                + mon
                 + "-de-"
                 + year
                 + ".ods"
@@ -450,7 +470,7 @@ def links_other_funds(month, year):
                 base_url 
                 + year
                 + "/"
-                + code_2021[month]
+                + cod_2021(month)
                 + "/VERBAS1.ods"
             )
             links_type["Membros ativos"] = link
@@ -483,6 +503,7 @@ def crawl(year, month, output_path):
         if urls_remuneration[element] == "":
             sys.stderr.write(f"Não existe planilha para {month}/{year}")
             sys.exit(4)
+        print(urls_remuneration[element])
         download(urls_remuneration[element], file_path)
         files.append(file_path)
 
@@ -490,6 +511,7 @@ def crawl(year, month, output_path):
         pathlib.Path(output_path).mkdir(exist_ok=True)
         file_name_indemnity = f"membros-ativos-verbas-indenizatorias-{month.zfill(2)}-{year}.ods"
         file_path_indemnity = output_path + "/" + file_name_indemnity
+        print(urls_other_funds[element])
         download(urls_other_funds[element], file_path_indemnity)
         files.append(file_path_indemnity)
 
