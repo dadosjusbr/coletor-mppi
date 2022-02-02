@@ -89,8 +89,8 @@ def cod_2021(month):
         "08": "10",
         "09": "10",
         "10": "12",
-        "11": "",
-        "12": "",
+        "11": "01",
+        "12": "01",
     }
 
     return cod[month]
@@ -107,8 +107,8 @@ def cod_2021_indemmit(month):
         "08": "10",
         "09": "10",
         "10": "12",
-        "11": "",
-        "12": "",
+        "11": "01",
+        "12": "01",
     }
 
     return cod[month]
@@ -325,11 +325,12 @@ def links_remuneration(month, year):
                 + ".ods"
             )
     elif year == "2021":
-        if month in ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10"]:
+        if month in ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]:
             mon = "marco" if convert_month(month) == "maro" else convert_month(month)
+            year_id = "2022" if month in ["11", "12"] else "2021"
             link = (
                 base_url
-                + year
+                + year_id
                 + "/"
                 + cod_2021(month)
                 + "/Remuneracao-de-todos-os-membros-ativos-%E2%80%93-"
@@ -450,11 +451,12 @@ def links_other_funds(month, year):
             )
             links_type["Membros ativos"] = link
     elif year == "2021":
-        if month in ["01", "02", "03", "04", "05", "06", "07", "08", "10"]:
+        if month in ["01", "02", "03", "04", "05", "06", "07", "08", "10", "11", "12"]:
             mon = "marco" if convert_month(month) == "maro" else convert_month(month)
+            year_id = "2022" if month in ["11", "12"] else "2021"
             link = (
                 base_url
-                + year
+                + year_id
                 + "/"
                 + cod_2021_indemmit(month)
                 + "/Verbas-Indenizatorias-e-Outras-Remuneracoes-Temporarias-%E2%80%93-Membros-%E2%80%93-"
@@ -491,7 +493,7 @@ def download(url, file_path):
         sys.exit(1)
 
 
-# Crawl retrieves payment files from MPDFT.
+# Crawl retrieves payment files from MPPI.
 def crawl(year, month, output_path):
     urls_remuneration = links_remuneration(month, year)
     urls_other_funds = links_other_funds(month, year)
