@@ -41,7 +41,10 @@ def parse_employees(fn, chave_coleta, categoria):
                 cria_remuneracao(row, categoria)
             )
           
-            employees[matricula] = membro
+            if categoria == CONTRACHEQUE_JUN_18_BACKWARD:
+                employees[name] = membro
+            else:
+                employees[matricula] = membro
             counter += 1
             
     return employees
