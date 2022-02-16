@@ -3,7 +3,7 @@ import pathlib
 import sys
 import os
 
-base_url = "https://www.mppi.mp.br/internet/wp-content/uploads//"
+base_url = "https://www.mppi.mp.br/internet/wp-content/uploads/"
 
 def convert_month(month):
     months = {
